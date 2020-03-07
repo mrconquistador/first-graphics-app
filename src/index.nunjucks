@@ -3,7 +3,7 @@
 {% import "_modules/link/link.nunjucks" as link %}
 
 {% block headline%}
-This shit is amazing
+I am a headline
 {% endblock %}
 
 {% block byline%}
@@ -15,8 +15,28 @@ by Gabriel Cortes
   </time>
 {% endblock %}
 
-{% block content%}
-{% for obj in site.data.harvard_park_homicides%}
-  {{obj.first_name}} {{obj.last_name}}<br>
-{% endfor %}
+{% block content %}
+
+<h3>Lives lost in Harvard Park</h3>
+
+<p>The {{ site.data.harvard_park_homicides|length }} homicides in Harvard Park since 2000 were primarily black and Latino males, but the list includes husbands, wives, fathers, mothers of all ages, and even some small children.</p>
+
+<div class="card-columns">
+  {% for obj in site.data.harvard_park_homicides %}
+      <div class="card">
+        <div class="card-body">
+          {% if obj.image %}
+            <div class="image-box">
+              <img class="card-img-top" src="{{ obj.image }}" alt="{{ obj.first_name }} {{ obj.last_name }}">
+            </div>
+          {% endif %}
+            <a href="https://homicides.latimes.com/{{obj.slug}}">
+              <h5 class="card-title">{{ obj.first_name }} {{ obj.last_name }}</h5>
+            </a>
+            <p class="card-text">{{ obj.last_name }}, a {{obj.age}}-year-old {{obj.race}} {{obj.gender}}, died in {{obj.death_year}}.</p>
+        </div>
+      </div>
+  {% endfor %}
+</div>
 {% endblock %}
+
