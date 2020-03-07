@@ -3,7 +3,7 @@
 {% import "_modules/link/link.nunjucks" as link %}
 
 {% block headline%}
-I am a headline
+A South L.A. neighborhood grapples with a wave of violence
 {% endblock %}
 
 {% block byline%}
@@ -16,6 +16,21 @@ by Gabriel Cortes
 {% endblock %}
 
 {% block content %}
+<h3>One corner. Four killings.</h3>
+<div id="map"></div>
+
+<h3>An L.A. neighborhood stands apart</h3>
+<p></p>
+
+<div class="charts">
+  <div class="inline-chart" id="county-homicides">
+    <h4 class="chart-title">County homicides, 2000-2017</h4>
+  </div>
+  <div class="inline-chart" id="harvard-park-homicides">
+    <h4 class="chart-title">County homicides, 2000-2017</h4>
+  </div>
+</div>
+
 
 <h3>Lives lost in Harvard Park</h3>
 
@@ -39,4 +54,3 @@ by Gabriel Cortes
   {% endfor %}
 </div>
 {% endblock %}
-
